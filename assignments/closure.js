@@ -3,10 +3,23 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
+function myName(name) {
+  console.log(`My name is ${name}.`);
 
+  return function favHobby(hobby) {
+    console.log(`My favorite hobby is ${hobby}.`);
+
+    return function favFood(food) {
+      console.log(`My favorite food is ${food}.`);
+    }; // favFood
+  }; //hobby
+} //myName
+
+const greg = myName("Greg");
+const gregHobby = greg("guitar");
+const gregFavFood = gregHobby("steak & lobster");
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
-
 
 // ==== Challenge 2: Implement a "counter maker" function ====
 const counterMaker = () => {
